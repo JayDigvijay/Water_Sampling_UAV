@@ -20,17 +20,18 @@ client = mqtt.Client("Raspberry-Pi")
 broker = '15.206.122.229'
 client.connect(broker)
 
-#client.publish('FC', "hello", qos = 2)
+client.subscribe('FC', qos = 2)
 client.subscribe('Pi', qos = 2)
 
 while(1):    
-    client.on_message = on_message
-    client.loop()
     if data == "Location Reached" and data2 != data:
+        client.publish('FC', "Done", qos = 2)
         data2 = data
         take_sample()
         take_readings()
-        break    
-client.publish('FC', "Done", qos = 2)
+        break
+    client.on_message = on_message
+    client.loop()    
+
     
     
