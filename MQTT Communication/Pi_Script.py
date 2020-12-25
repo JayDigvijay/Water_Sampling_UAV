@@ -30,8 +30,7 @@ while(1):
         data2 = data
         take_sample()
         take_readings()
-        client.publish('FC', "Done", qos = 2)
         break    
-    
+client.publish('FC', "Done", qos = 2)
     
     
