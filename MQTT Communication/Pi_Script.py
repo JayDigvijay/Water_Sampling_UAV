@@ -23,15 +23,16 @@ client.connect(broker)
 client.subscribe('FC', qos = 2)
 client.subscribe('Pi', qos = 2)
 
-while(1):    
-    if data == "Location Reached" and data2 != data:
-        client.publish('FC', "Done", qos = 2)
-        data2 = data
-        take_sample()
-        take_readings()
-        break
-    client.on_message = on_message
-    client.loop()    
+while(1):
+	if data == "Location Reached" and data2 != data:
+		client.publish('FC', "Done", qos = 2)
+		client.loop()
+		data2 = data
+		take_sample()
+		take_readings()
+		break
+	client.on_message = on_message
+	client.loop()    
 
     
     
