@@ -7,7 +7,7 @@ def on_message(client, userdata, message):
     global data
     data = message.payload.decode('utf-8')
     print(data)
-    time.sleep(2)
+    #time.sleep(2)
     
 client = mqtt.Client("Flight-Controller")
 broker = '15.206.122.229'
