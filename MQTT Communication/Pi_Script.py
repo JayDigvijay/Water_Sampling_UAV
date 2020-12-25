@@ -10,10 +10,10 @@ def on_message(client, userdata, message):
     print(data)
     #time.sleep(2)
 def take_sample():
-    #time.sleep(2)
+    time.sleep(2)
     print("Sample Collected")
 def take_readings():
-    #time.sleep(2)
+    time.sleep(2)
     print("Readings taken")
       
 client = mqtt.Client("Raspberry-Pi")
