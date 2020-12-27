@@ -1,0 +1,8 @@
+Red: 1     3V3
+Brown: 6   GND
+Purple: 17 3v3
+White: 20  GND
+Orange: 19 MOSI
+Yellow: 21 MISO
+Green: 23 SCLK
+Blue: 29 D5
