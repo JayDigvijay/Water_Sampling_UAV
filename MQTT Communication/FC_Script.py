@@ -15,13 +15,14 @@ client.connect(broker)
 #client.publish('Pi', "Location Reached", qos = 2)
 client.loop()
 client.subscribe('FC', qos = 2)
+client.publish('Pi', "Location Reached", qos = 1)
 
 while(1):
     #print("started")
     if data == "Measurement Done":
         break    
-    client.publish('Pi', "Location Reached", qos = 2)
-    time.sleep(3)
+    
+    #time.sleep(10)
     client.on_message = on_message
     client.loop()
     
