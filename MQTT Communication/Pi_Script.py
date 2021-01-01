@@ -11,7 +11,7 @@ def on_message(client, userdata, message):
     #time.sleep(2)
     
 client = mqtt.Client("Flight-Controller")
-broker = '13.232.250.241'
+broker = 'broker.hivemq.com'
 client.connect(broker)
 
 client.subscribe('Pi', qos = 2)
@@ -29,8 +29,8 @@ while(1):
         take_sample()
         take_readings()
         client.publish('FC', "Measurement Done", qos = 1)
-        client.loop(3)
         client.on_message = on_message
+        client.loop_forever
         break
     client.on_message = on_message
     client.loop(0.1)    

@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
 import time
-import json
+
 data = "test"
 
 def on_message(client, userdata, message):
@@ -10,8 +10,8 @@ def on_message(client, userdata, message):
     #time.sleep(2)
     
 client = mqtt.Client("Flight-Controller")
-broker = '13.232.250.241'
-client.connect(broker)
+broker = 'broker.hivemq.com'
+client.connect(broker, 1883, 8000)
 #client.publish('Pi', "Location Reached", qos = 2)
 client.loop()
 client.subscribe('FC', qos = 2)
@@ -24,7 +24,7 @@ while(1):
     
     #time.sleep(10)
     client.on_message = on_message
-    client.loop()
+    client.loop_forever()
     
     
 print("Finished")
