@@ -2,17 +2,18 @@ import paho.mqtt.client as mqtt
 import time
 
 data = "test"
-data2 = "test"
+status = "Ongoing"
 
 def on_message(client, userdata, message):
     global data
     data = message.payload.decode('utf-8')
     print(data)
-    if data == "Location Reached" and data2 == "test":
-        data2 = data
+    if data == "Location Reached":
         take_sample()
         take_readings()
         client.publish('FC', "Measurement Done", qos = 1)
+        
+        status = "Finished"
     #time.sleep(2)
 
 def on_connect(client, userdata, flags, rc):
@@ -32,7 +33,9 @@ def take_readings():
 
 client.on_connect = on_connect
 client.on_message = on_message
-client.loop_forever()  
+while status == "Ongoing":
+    client.loop()  
 
+print(status)
     
     
