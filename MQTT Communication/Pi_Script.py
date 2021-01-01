@@ -5,16 +5,15 @@ data = "test"
 status = "Ongoing"
 
 def on_message(client, userdata, message):
-    global data
+    global status
     data = message.payload.decode('utf-8')
     print(data)
     if data == "Location Reached":
         take_sample()
         take_readings()
         client.publish('FC', "Measurement Done", qos = 1)
-        
+        time.sleep(2)
         status = "Finished"
-    #time.sleep(2)
 
 def on_connect(client, userdata, flags, rc):
 	print("Connected with result code "+str(rc))

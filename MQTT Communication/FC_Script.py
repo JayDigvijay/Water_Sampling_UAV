@@ -5,11 +5,10 @@ data = "test"
 status = "Ongoing"
 
 def on_message(client, userdata, message):
-    global status
+    global data
     data = message.payload.decode('utf-8')
     print(data)
-    if data == "Measurement Done":
-        status = "Finished"
+    
         
     #time.sleep(2)
 
@@ -28,7 +27,7 @@ client.publish('Pi', "Location Reached", qos = 1)
 
 #time.sleep(10)
 client.on_message = on_message
-while status == "Ongoing":
+while data != "Measurement Done":
     client.loop()
     
-print(status)   
+   
