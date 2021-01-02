@@ -21,11 +21,12 @@ kvalue                 = 0.996
 #kvalueLow              = 1.0
 #kvalueHigh             = 1.0
 temperature            = 25.000
+v_level = 5
 ##################################
 
 while True:
 	##### Calculations ###############
-	voltage = ((chan.value)/(2**16)*3300)
+	voltage = ((chan.value)/(2**16)*1000*v_level)
 	rawEC = 1000.000*voltage/(820.000*200.000)
 	valueTemp = rawEC * kvalue
 	value = rawEC * kvalue
