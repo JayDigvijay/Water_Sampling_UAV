@@ -16,7 +16,13 @@ mcp = MCP.MCP3008(spi, cs)
 # create an analog input channel on pin 0
 chan = AnalogIn(mcp, MCP.P7)
 
+#Define Values
+Offset = 3.0
+V_Level = 5.0
+
+
 while True:
-    print(chan.value)
-    time.sleep(2)
+	pH = chan.value/4096 + 1.5 
+	print(pH)
+	time.sleep(2)
 
