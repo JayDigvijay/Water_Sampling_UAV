@@ -1,11 +1,12 @@
-Red: 1     3V3
-Brown: 6   GND
-Purple: 17 3v3
-White: 20  GND
-Orange: 19 MOSI
-Yellow: 21 MISO
-Green: 23 SCLK
-Blue: 29 D5
+#MCP3008 Connections
+			MCP3008  : Raspberry Pi 4
+ 15 Vref and 16 VDD : 5V Rail : Pin-4 5V
+ 9 D.GND and 14 A.GND : GND Rail : Pin-6 GND
+ 
+ 11 Din : Pin-19 GPIO-10 MOSI    
+ 12 Dout : Pin-21 GPIO-9 MISO
+ 13 Clock : Pin-23  GPIO-11  SCLK
+ 10 CS	  : Pin-29 GPIO-5
 
 
 # Temperature Sensor Connections
