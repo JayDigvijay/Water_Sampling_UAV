@@ -6,3 +6,11 @@ Orange: 19 MOSI
 Yellow: 21 MISO
 Green: 23 SCLK
 Blue: 29 D5
+
+
+# Temperature Sensor Connections
+
+Black : GND Rail
+Red: Vcc Rail (5V)
+Yellow: GPIO4 via Breadboard. On the Breadboard, connect a resistor 
+		(recommended: 10k, but works with 6.8k) between Signal pin and Vcc rail for Pull-up 
